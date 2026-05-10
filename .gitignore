@@ -12,7 +12,7 @@ Thumbs.db
 
 # [Frontend - React/Vite]
 # 하위 폴더명을 명시하여 정확히 타겟팅합니다.
-frontend/node_modules/
+frontend/dashboard-react/node_modules/
 frontend/dist/
 frontend/dist-ssr/
 frontend/*.local
