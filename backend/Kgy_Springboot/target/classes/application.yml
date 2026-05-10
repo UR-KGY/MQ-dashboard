@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    url: jdbc:mysql://183.100.182.169:3306/KimGwanYoung?serverTimezone=Asia/Seoul
+    username: root
+    password: swhacademy!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Redis 설정
+  data:
+    redis:
+      host: busy-marmot-41972.upstash.io
+      port: 6379
+      password: AaP0AAIncDE0YzJmNWQxZjdhYjY0ZTVkOWRmODM0ZGFhOTNhODFiNXAxNDE5NzI
+      ssl:
+        enabled: true
+
+  # RabbitMQ 설정
+  rabbitmq:
+    host: dingo.rmq.cloudamqp.com
+    port: 5671
+    username: pgzxtfie
+    password: CmZh6pZ28fHNZ6x3ScZLAs-4yUjryFDy
+    virtual-host: pgzxtfie
+    ssl:
+      enabled: true
+
+  # NATS 설정
+  nats:
+    server: nats://localhost:4222
+
+# --- 커스텀 MQ 전략 설정 (이 부분을 집중해서 관리하세요) ---
+mq:
+  type: redis     # 스위칭 포인트 1: rabbitmq | redis | nats
+  redis-mode: pubsub
+# 스위칭 포인트 2: list | pubsub
+
+  # 이름 설정 (각 방식에서 사용)
+  queue-name: kgy.default.queue
+
+# Actuator 설정 (Refresh 용)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "refresh,health,info,prometheus"
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: my-mq-project # 대시보드에서 식별할 이름

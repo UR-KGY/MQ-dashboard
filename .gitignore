@@ -1,0 +1,44 @@
+# [OS & IDE]
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.settings/
+.classpath
+.project
+
+# [Frontend - React/Vite]
+# 하위 폴더명을 명시하여 정확히 타겟팅합니다.
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+frontend/.env
+frontend/.env.local
+frontend/npm-debug.log*
+
+# [Backend - Spring Boot/Maven]
+backend/target/
+backend/build/
+backend/out/
+backend/.sts4-cache/
+backend/.springBeans/
+backend/bin/
+backend/*.jar
+
+# [Infrastructure - Prometheus/NATS]
+# 실행 프로그램과 수집 데이터는 포함하지 않습니다.
+*.exe
+*.zip
+*.tar.gz
+infra/nats-server-*/
+infra/prometheus-*/
+# 만약 infra 폴더 안에 프로메테우스 데이터를 저장한다면 제외
+infra/data/ 
+
+# [Logs]
+*.log
+logs/
